@@ -11,10 +11,10 @@ const parseBody = express.json();
 
 const serializeBookmark = bookmark => ({
   id: bookmark.id,
-  title: bookmark.title,
+  title: xss(bookmark.title),
   url: bookmark.url,
   rating: Number(bookmark.rating),
-  description: bookmark.description
+  description: xss(bookmark.description)
 });
 
 bookmarksRouter
